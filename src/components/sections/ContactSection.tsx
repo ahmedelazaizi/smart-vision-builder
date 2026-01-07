@@ -10,25 +10,25 @@ const contactInfo = [
   {
     icon: Phone,
     label: "الهاتف",
-    value: "+966 XX XXX XXXX",
-    href: "tel:+966XXXXXXXX",
+    value: "+201551888808",
+    href: "tel:+201551888808",
   },
   {
     icon: MessageCircle,
     label: "واتساب",
-    value: "+966 XX XXX XXXX",
-    href: "https://wa.me/966XXXXXXXX",
+    value: "+201551888808",
+    href: "https://wa.me/201551888808",
   },
   {
     icon: Mail,
     label: "البريد الإلكتروني",
-    value: "info@aysmartsolutions.com",
-    href: "mailto:info@aysmartsolutions.com",
+    value: "Smart2024Solutions@gmail.com",
+    href: "mailto:Smart2024Solutions@gmail.com",
   },
   {
     icon: MapPin,
     label: "الموقع",
-    value: "المملكة العربية السعودية",
+    value: "جمهورية مصر العربية",
     href: "#",
   },
 ];
@@ -44,11 +44,13 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = `رسالة من ${formData.name}`;
+    const body = `الاسم: ${formData.name}%0Aالهاتف: ${formData.phone}%0Aالبريد: ${formData.email}%0A%0Aالرسالة:%0A${formData.message}`;
+    window.location.href = `mailto:Smart2024Solutions@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
     toast({
-      title: "تم إرسال رسالتك بنجاح!",
-      description: "سنتواصل معك في أقرب وقت ممكن.",
+      title: "جاري فتح البريد الإلكتروني",
+      description: "سيتم فتح تطبيق البريد لإرسال رسالتك.",
     });
-    setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
   const handleChange = (
@@ -200,7 +202,7 @@ const ContactSection = () => {
                 تواصل معنا عبر واتساب للرد الفوري
               </p>
               <Button variant="lime" size="lg" className="w-full" asChild>
-                <a href="https://wa.me/966XXXXXXXX" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/201551888808" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5 ml-2" />
                   محادثة واتساب
                 </a>
