@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Calculator,
   Building2,
@@ -6,6 +7,7 @@ import {
   Smartphone,
   BarChart3,
   TrendingUp,
+  ArrowLeft,
 } from "lucide-react";
 
 const services = [
@@ -15,6 +17,7 @@ const services = [
     description:
       "أنظمة محاسبة متكاملة تشمل الفواتير، المخزون، الحسابات، والتقارير المالية",
     color: "teal",
+    link: "/services/accounting-systems",
   },
   {
     icon: Building2,
@@ -22,6 +25,7 @@ const services = [
     description:
       "أنظمة إدارة موارد المؤسسات الشاملة لربط جميع أقسام شركتك في منصة واحدة",
     color: "lime",
+    link: "/services/erp-systems",
   },
   {
     icon: Globe,
@@ -29,6 +33,7 @@ const services = [
     description:
       "تصميم وتطوير مواقع احترافية متجاوبة مع جميع الأجهزة وصديقة لمحركات البحث",
     color: "navy",
+    link: "/services/web-development",
   },
   {
     icon: Smartphone,
@@ -36,6 +41,7 @@ const services = [
     description:
       "تطوير تطبيقات iOS و Android بأحدث التقنيات مع تجربة مستخدم سلسة",
     color: "teal",
+    link: "/services/mobile-apps",
   },
   {
     icon: BarChart3,
@@ -43,6 +49,7 @@ const services = [
     description:
       "لوحات تحكم تفاعلية وتحليلات بيانات متقدمة لاتخاذ قرارات أفضل",
     color: "lime",
+    link: "/services/dashboards",
   },
   {
     icon: TrendingUp,
@@ -50,6 +57,7 @@ const services = [
     description:
       "حلول تسويق رقمي شاملة تشمل SEO، إعلانات مدفوعة، وإدارة السوشيال ميديا",
     color: "navy",
+    link: "/services/digital-marketing",
   },
 ];
 
@@ -117,9 +125,18 @@ const ServicesSection = () => {
               <h3 className="font-heading font-bold text-xl text-foreground mb-3 group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 {service.description}
               </p>
+
+              {/* Read More Link */}
+              <Link
+                to={service.link}
+                className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all duration-300"
+              >
+                اقرأ المزيد
+                <ArrowLeft className="w-4 h-4" />
+              </Link>
 
               {/* Hover indicator */}
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
