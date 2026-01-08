@@ -5,12 +5,12 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpeg";
 
 const navLinks = [
-  { name: "الرئيسية", href: "#hero" },
-  { name: "من نحن", href: "#about" },
-  { name: "خدماتنا", href: "#services" },
-  { name: "أعمالنا", href: "#portfolio" },
-  { name: "لماذا نحن", href: "#why-us" },
-  { name: "تواصل معنا", href: "#contact" },
+  { name: "الرئيسية", href: "/#hero" },
+  { name: "من نحن", href: "/#about" },
+  { name: "خدماتنا", href: "/#services" },
+  { name: "أعمالنا", href: "/#portfolio" },
+  { name: "لماذا نحن", href: "/#why-us" },
+  { name: "تواصل معنا", href: "/#contact" },
 ];
 
 const Header = () => {
