@@ -101,46 +101,44 @@ const ServicesSection = () => {
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
-              viewport={{ once: true }}
-              className="group relative bg-card rounded-2xl p-8 shadow-soft hover:shadow-elevated transition-all duration-500 border border-border hover:border-primary/20 overflow-hidden"
-            >
-              {/* Background gradient on hover */}
-              <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
-
-              {/* Icon */}
-              <div
-                className={`relative w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-500 ${getColorClasses(
-                  service.color
-                )}`}
+            <Link key={index} to={service.link} className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                viewport={{ once: true }}
+                className="group relative bg-card rounded-2xl p-8 shadow-soft hover:shadow-elevated transition-all duration-500 border border-border hover:border-primary/20 overflow-hidden h-full cursor-pointer"
               >
-                <service.icon className="w-7 h-7" />
-              </div>
+                {/* Background gradient on hover */}
+                <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none" />
 
-              {/* Content */}
-              <h3 className="font-heading font-bold text-xl text-foreground mb-3 group-hover:text-primary transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                {service.description}
-              </p>
+                {/* Icon */}
+                <div
+                  className={`relative w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-500 ${getColorClasses(
+                    service.color
+                  )}`}
+                >
+                  <service.icon className="w-7 h-7" />
+                </div>
 
-              {/* Read More Link */}
-              <Link
-                to={service.link}
-                className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all duration-300"
-              >
-                اقرأ المزيد
-                <ArrowLeft className="w-4 h-4" />
-              </Link>
+                {/* Content */}
+                <h3 className="font-heading font-bold text-xl text-foreground mb-3 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  {service.description}
+                </p>
 
-              {/* Hover indicator */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-            </motion.div>
+                {/* Read More */}
+                <span className="inline-flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all duration-300">
+                  اقرأ المزيد
+                  <ArrowLeft className="w-4 h-4" />
+                </span>
+
+                {/* Hover indicator */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
